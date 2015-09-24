@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NG Utils Example</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="../src/NgUtil.js"></script>
+        <script type="text/javascript">
+            NgUtil.async().
+                    join(function (cb) { // adding first task
+                        setTimeout(function () {
+                            console.log("1 (async)");
+                            cb();
+                        }, 5000 * Math.random());
+                    }).
+                    join(function (cb) {// adding second task
+                        setTimeout(function () {
+                            console.log("2 (async)");
+                            cb();
+                        }, 5000 * Math.random());
+                    }).
+                    join(function (cb) {// adding third task
+                        setTimeout(function () {
+                            console.log("3 (async)");
+                            cb();
+                        }, 5000 * Math.random());
+                    }).
+                    perform().// finally performing the tasks
+                    onComplete(function () { // on complete call back
+                        console.log("Done (async)");
+                    });
+
+
+            NgUtil.sync().
+                    join(function (cb) { // adding first task
+                        setTimeout(function () {
+                            console.log("1 (sync)");
+                            cb();
+                        }, 5000 * Math.random());
+                    }).
+                    join(function (cb) {// adding second task
+                        setTimeout(function () {
+                            console.log("2 (sync)");
+                            cb();
+                        }, 5000 * Math.random());
+                    }).
+                    join(function (cb) {// adding third task
+                        setTimeout(function () {
+                            console.log("3 (sync)");
+                            cb();
+                        }, 5000 * Math.random());
+                    }).
+                    perform().// finally performing the tasks
+                    onComplete(function () { // on complete call back
+                        console.log("Done (sync)");
+                    });
+        </script>
+    </head>
+    <body>
+        <h1>Hello this is to demonstrate the <a href='../src/NgUtil.js'>NgUtil</a> Java Script Library!</h1>
+    </body>
+</html>
