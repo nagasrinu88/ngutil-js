@@ -2,7 +2,7 @@
 This is set of java script API's will be useful while developing any java script related app
 
 This library has method to control the ajax execution flow.
-some can execute set of ajax calls synchronously or asynchronously, the below example will give you an idea how to use this API's
+some one can execute set of ajax calls synchronously or asynchronously, the below example will give you an idea how to use this API's
 # Async Example
 ```javascript
 NgUtil.async().
